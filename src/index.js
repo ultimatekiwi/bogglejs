@@ -23,8 +23,10 @@ class Board extends React.Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice();
-    squares[i] = 'X';
-    this.setState({squares: squares});
+    squares[i] = cubes[i][Math.floor(Math.random()*6)];  //6 for the possible faces on that cube
+//    squares[i] = 'X';
+//    this.setState({squares: squares});
+    this.setState(   {squares: squares});  
   }
 
   renderSquare(i) {
