@@ -9,7 +9,11 @@ const cubes = [ 'AAEEGN', 'ELRTTY', 'AOOTTW', 'ABBJOO', 'EHRTVW', 'CIMOTU', 'DIS
 
 class Square extends React.Component {
   render() {
-    return <button className="square">{this.props.value}</button>;
+    return (
+      <button className="square" onClick={function() { alert('click'); }}>
+        {this.props.value}
+      </button>
+    );
   }
 }
 
