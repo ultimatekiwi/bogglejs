@@ -1,0 +1,15 @@
+// source: https://www.jsoftware.com/papers/play181.htm
+
+aaaaacdddeeeeehh
+abcfoieeieehilil
+ebhfomilsgirormn
+ejoktolrthntstnn
+goppttrvtnsvstqr
+nosswuxyywuwtyuz
+
+aaaaaaaabccccddddeeefgino
+fdeaeaeajceeehhdhnmiiopoo
+ieeageefkeiiillhhsoiprroo
+rnefmegiqnlipnnnlstirrrtt
+snernemrxsplsoooosttsvrut
+ynmsneuszttttrrtruttywywu
