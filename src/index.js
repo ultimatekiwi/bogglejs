@@ -21,6 +21,7 @@ class Board extends React.Component {
     };
   }
 
+
   handleClick(i) {
     const squares = this.state.squares.slice();
     squares[i] = cubes[i][Math.floor(Math.random()*6)];  //6 for the possible faces on that cube
@@ -38,6 +39,27 @@ class Board extends React.Component {
     );
   }
 
+/*
+    render() {
+    const status = 'Next player: X';
+    
+    return (
+        <div>
+        <div className="status">{status}</div>
+          <div className="board-row"></div>
+           {cubes.map(cube => (
+             <li key={cube}>
+               {this.renderSquare(cube)}
+             </li>
+           ))
+           }
+        </div>
+    );
+  }
+ */
+
+
+// lol fuck it, copy-paste for the moment.
   render() {
     const status = 'Next player: X';
 
@@ -48,16 +70,25 @@ class Board extends React.Component {
           {this.renderSquare(0)}
           {this.renderSquare(1)}
           {this.renderSquare(2)}
+          {this.renderSquare(3)}
         </div>
         <div className="board-row">
-          {this.renderSquare(3)}
           {this.renderSquare(4)}
           {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
           {this.renderSquare(6)}
           {this.renderSquare(7)}
+        </div>
+        <div className="board-row">
           {this.renderSquare(8)}
+          {this.renderSquare(9)}
+          {this.renderSquare(10)}
+          {this.renderSquare(11)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(12)}
+          {this.renderSquare(13)}
+          {this.renderSquare(14)}
+          {this.renderSquare(15)}
         </div>
       </div>
     );
