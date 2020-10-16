@@ -1,20 +1,33 @@
-// source: https://www.jsoftware.com/papers/play181.htm
+# source: https://www.jsoftware.com/papers/play181.htm
 
+
+basebog = """
 aaaaacdddeeeeehh
 abcfoieeieehilil
 ebhfomilsgirormn
 ejoktolrthntstnn
 goppttrvtnsvstqr
-nosswuxyywuwtyuz
+nosswuxyywuwtyuz"""
 
 
+
+bigbog = """
 aaaaaaaabccccddddeeefgino
 fdeaeaeajceeehhdhnmiiopoo
 ieeageefkeiiillhhsoiprroo
 rnefmegiqnlipnnnlstirrrtt
 snernemrxsplsoooosttsvrut
-ynmsneuszttttrrtruttywywu
+ynmsneuszttttrrtruttywywu"""
 
+
+
+
+
+
+
+
+
+# 4x4 boggle from earlier fiddling:
 
 cubes = ["AAEEGN",
 	 "ELRTTY",
@@ -31,4 +44,7 @@ cubes = ["AAEEGN",
 	 "EEGHNW",
 	 "AFFKPS",
 	 "HLNNRZ",
-	 "DEILRX"];
+	 "DEILRX"]
+
+
+bigcubes = ['aaaaaaaabccccddddeeefgino', 'fdeaeaeajceeehhdhnmiiopoo', 'ieeageefkeiiillhhsoiprroo', 'rnefmegiqnlipnnnlstirrrtt', 'snernemrxsplsoooosttsvrut', 'ynmsneuszttttrrtruttywywu']

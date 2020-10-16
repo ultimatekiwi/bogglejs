@@ -1,24 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+
+const cubes = [ 'AAEEGN', 'ELRTTY', 'AOOTTW', 'ABBJOO', 'EHRTVW', 'CIMOTU', 'DISTTY', 'EIOSST', 'DELRVY', 'ACHOPS', 'HIMNQU', 'EEINSU', 'EEGHNW', 'AFFKPS', 'HLNNRZ', 'DEILRX' ];
+
+
+
 
 class Square extends React.Component {
   render() {
-    return (
-      <button className="square">
-        {/* TODO */}
-      </button>
-    );
+    return <button className="square">{this.props.value}</button>;
   }
 }
 
 class Board extends React.Component {
   renderSquare(i) {
-    return <Square />;
+    return <Square value={i} />;
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = "Next player: X";
 
     return (
       <div>
@@ -53,6 +54,30 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cubes: [
+        "AAEEGN",
+        "ELRTTY",
+        "AOOTTW",
+        "ABBJOO",
+        "EHRTVW",
+        "CIMOTU",
+        "DISTTY",
+        "EIOSST",
+        "DELRVY",
+        "ACHOPS",
+        "HIMNQU",
+        "EEINSU",
+        "EEGHNW",
+        "AFFKPS",
+        "HLNNRZ",
+        "DEILRX",
+      ],
+    };
+  }
+
   render() {
     return (
       <div className="game">
@@ -70,7 +95,4 @@ class Game extends React.Component {
 
 // ========================================
 
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-);
+ReactDOM.render(<Game />, document.getElementById("root"));
