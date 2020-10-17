@@ -45,10 +45,10 @@ class Board extends React.Component {
     const { boardState } = this.props;
 
     // What is happening in the next 10 lines? Fuck me if I can explain it.
-    const boardRows = boardState.map((row) => (
-      <div className="board-row">
-        {row.map((square) => (
-          <span className="square">{square}</span>
+    const boardRows = boardState.map((row, rowIdx) => (
+      <div className="board-row" key={rowIdx}>
+        {row.map((square, squareIdx) => (
+          <span className="square" key={squareIdx}>{square}</span>
         ))}
       </div>
     ))
@@ -112,10 +112,7 @@ class Game extends React.Component {
 
   shuffleBoard() {
     // TODO: generate a random 4x4 board here
-    // const newBoard = []this.state.squares.slice();;
-    
-    
-
+    // const newBoard = []this.state.squares.slice();
     const newBoard = chunk( cubes.map((x) => x[Math.floor(Math.random()*6)]), 4)
  
 //    const newBoard = [['M', 'A', 'R', 'C'], ['U', 'S', '=', 'L'], ['E', 'X', 'L', 'U'], ['T', 'H', 'O', 'R']]
@@ -127,6 +124,7 @@ class Game extends React.Component {
   componentDidMount() {
     this.shuffleBoard()
   }
+
 
   render() {
     return (
