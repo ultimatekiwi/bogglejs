@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { chunk } from 'lodash';
+import _ from "lodash";
 
 
 const cubes = [ 'AAEEGN', 'ELRTTY', 'AOOTTW', 'ABBJOO', 'EHRTVW', 'CIMOTU', 'DISTTY', 'EIOSST', 'DELRVY', 'ACHOPS', 'HIMNQU', 'EEINSU', 'EEGHNW', 'AFFKPS', 'HLNNRZ', 'DEILRX' ];
@@ -112,9 +113,10 @@ class Game extends React.Component {
 
   shuffleBoard() {
     // TODO: generate a random 4x4 board here
-    // const newBoard = []this.state.squares.slice();
-    const newBoard = chunk( cubes.map((x) => x[Math.floor(Math.random()*6)]), 4)
- 
+    // const newBoard = []this.state.squares.slice();;
+
+    const newBoard = chunk(  _.shuffle(cubes.map((x) => x[Math.floor(Math.random()*6)])), 4)
+
 //    const newBoard = [['M', 'A', 'R', 'C'], ['U', 'S', '=', 'L'], ['E', 'X', 'L', 'U'], ['T', 'H', 'O', 'R']]
     this.setState({
       boardState: newBoard
