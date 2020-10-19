@@ -15,6 +15,15 @@ const cubes = [ 'AAEEGN', 'ELRTTY', 'AOOTTW', 'ABBJOO', 'EHRTVW', 'CIMOTU', 'DIS
 //   );
 // }
 
+function NewGame(props) {
+  return (
+    <button onClick={props.onClick}>
+      {"Create New Board"}
+    </button>
+  );
+}
+
+
 class Board extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +31,7 @@ class Board extends React.Component {
       squares: Array(9).fill(null),
     };
   }
+
 
 
 //   handleClick(i) {
@@ -62,7 +72,9 @@ class Board extends React.Component {
         <div>
         <div className="status">{status}</div>
           {boardRows}
+
         </div>
+
     );
   }
 
@@ -111,12 +123,11 @@ class Game extends React.Component {
     }
   }
 
+
+
   shuffleBoard() {
     // TODO: generate a random 4x4 board here
-    // const newBoard = []this.state.squares.slice();;
-
     const newBoard = chunk(  _.shuffle(cubes.map((x) => x[Math.floor(Math.random()*6)])), 4)
-
 //    const newBoard = [['M', 'A', 'R', 'C'], ['U', 'S', '=', 'L'], ['E', 'X', 'L', 'U'], ['T', 'H', 'O', 'R']]
     this.setState({
       boardState: newBoard
@@ -133,9 +144,16 @@ class Game extends React.Component {
       <div className="game">
         <div className="game-board">
           <Board boardState={this.state.boardState}/>
+          
         </div>
         <div className="game-info">
-          <div>{/* status */}</div>
+          <div className="game-info">{"Testing Board.render"}</div>
+          <NewGame
+            onClick={() => this.shuffleBoard()}
+          />
+          <div>
+            {/* <p>Testing adding text to Game render</p> */}
+          </div>
           <ol>{/* TODO */}</ol>
         </div>
       </div>
