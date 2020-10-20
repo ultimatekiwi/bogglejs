@@ -23,7 +23,24 @@ class WordList extends React.Component {
     };
   }
 
-  render() {
+render() {
+ // const wordState = this.state.words;
+  const { wordList } = this.props;
+
+  const foundWords = wordList.map((word) => (
+    <li className='word-row'>{word}</li>
+  ))
+
+  return (
+    <div>Words:
+      <div className="word-list">
+        {foundWords}
+      </div>
+    </div>
+  )
+}
+
+/*   render() {
     return (
       <div>
         <ul>
@@ -33,7 +50,7 @@ class WordList extends React.Component {
         </ul>
       </div>
     );
-  }
+  } */
 
 }
 
