@@ -18,7 +18,7 @@ const cubes = [ 'AAEEGN', 'ELRTTY', 'AOOTTW', 'ABBJOO', 'EHRTVW', 'CIMOTU', 'DIS
 function NewGame(props) {
   return (
     <button onClick={props.onClick}>
-      {"Create New Board"}
+      {"New Board"}
     </button>
   );
 }
@@ -144,16 +144,18 @@ class Game extends React.Component {
       <div className="game">
         <div className="game-board">
           <Board boardState={this.state.boardState}/>
-          
+            <div className="button">
+              <NewGame onClick={() => this.shuffleBoard()}/>
+            </div>
         </div>
+
         <div className="game-info">
           <div className="game-info">{"Testing Board.render"}</div>
-          <NewGame
-            onClick={() => this.shuffleBoard()}
-          />
+          
           <div>
             {/* <p>Testing adding text to Game render</p> */}
           </div>
+
           <ol>{/* TODO */}</ol>
         </div>
       </div>
