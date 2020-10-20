@@ -15,7 +15,7 @@ li {
 input {
     font: 18px "Century Gothic", Futura, sans-serif;
     font-variant: small-caps;
-    width: calc(100% - 40px);
+    width: calc(100% - 60px);
     border: 0;
     padding: 10px;
     font-size: 1.3em;
@@ -73,4 +73,5 @@ input {
 .word-list {
   font: 14px "Century Gothic", Futura, sans-serif;
   font-size: 1.3em;
+  width: 60%;
 }

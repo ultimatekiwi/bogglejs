@@ -32,7 +32,7 @@ render() {
   ))
 
   return (
-    <div>Words:
+    <div>
       <div className="word-list">
         {foundWords}
       </div>
@@ -58,7 +58,8 @@ class WordForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
+      addWord: null
       };
 
     this.handleChange = this.handleChange.bind(this);
@@ -70,17 +71,19 @@ class WordForm extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('A word was submitted: ' + this.state.value);
+    
+    console.log('A word was submitted: ' + this.state.value); 
+    this.props.addWord(this.state.value);
+//    addWord(this.state.value);
     event.preventDefault();
-    this.addWord(this.state.value);
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         {/* <label>
           Word: */}
-          <input type="text" placeholder="Enter a word!" value={this.state.value} onChange={this.handleChange} onSubmit={this.handleSubmit}/>
+          <input type="text" placeholder="Enter a word!" value={this.state.value} onChange={this.handleChange} />
         {/* </label> */}
         <input type="submit" value="Submit" />        
       </form>
@@ -215,10 +218,9 @@ class Game extends React.Component {
 
         <div className="game-info">
           <div className="form">
-            <WordForm />
+            <WordForm addWord={(word) => this.addWord(word)}/>
           </div>
           <div className="word-list">
-            {"Word List:"}
             <WordList wordList={this.state.wordList}/>
             </div>
           
