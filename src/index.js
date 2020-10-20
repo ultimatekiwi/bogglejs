@@ -45,25 +45,25 @@ class WordForm extends React.Component {
       };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({value: event.target.value});
   }
 
-  // handleSubmit(event) {
-  //   alert('A word was submitted: ' + this.state.value);
-    
-  //   event.preventDefault();
-  // }
+  handleSubmit(event) {
+    console.log('A word was submitted: ' + this.state.value);
+    event.preventDefault();
+    this.addWord(this.state.value);
+  }
 
   render() {
     return (
       <form>
         {/* <label>
           Word: */}
-          <input type="text" placeholder="Enter a word!" value={this.state.value} onChange={this.handleChange} onSubmit={this.props.onSubmit(this.state.value)}/>
+          <input type="text" placeholder="Enter a word!" value={this.state.value} onChange={this.handleChange} onSubmit={this.handleSubmit}/>
         {/* </label> */}
         <input type="submit" value="Submit" />        
       </form>
@@ -145,7 +145,7 @@ class Game extends React.Component {
     super(props);
     this.state = {
       boardState: [],
-      wordList: []
+      wordList: ['first', 'another']
     }
   }
 
@@ -167,7 +167,7 @@ class Game extends React.Component {
   //   theWords.push(word);  //I can push a value onto a const array, right?
   //   this.setState({wordList: theWords});
   // }
-  addWord(word) {
+  addWord2(word) {
     console.log("shit idk how I should make an updateable list of words. ARG: " + word)
     const theWords = this.state.wordList;
     theWords.concat(word);
@@ -175,6 +175,14 @@ class Game extends React.Component {
       wordList: theWords
     })
   }
+
+  addWord(word) {
+	this.setState(prevState => ({
+		wordList: [...prevState.wordList, word]
+	}))
+}
+
+
 
 
   render() {
@@ -190,7 +198,7 @@ class Game extends React.Component {
 
         <div className="game-info">
           <div className="form">
-            <WordForm onSubmit={(word) => this.addWord(word)}/>
+            <WordForm />
           </div>
           <div className="word-list">
             {"Word List:"}
