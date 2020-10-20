@@ -15,6 +15,66 @@ const cubes = [ 'AAEEGN', 'ELRTTY', 'AOOTTW', 'ABBJOO', 'EHRTVW', 'CIMOTU', 'DIS
 //   );
 // }
 
+class WordList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      words: []
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <ul>
+          {(this.state.words).map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+}
+
+class WordForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ''
+      };
+
+    this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  // handleSubmit(event) {
+  //   alert('A word was submitted: ' + this.state.value);
+    
+  //   event.preventDefault();
+  // }
+
+  render() {
+    return (
+      <form>
+        {/* <label>
+          Word: */}
+          <input type="text" placeholder="Enter a word!" value={this.state.value} onChange={this.handleChange} onSubmit={this.props.onSubmit(this.state.value)}/>
+        {/* </label> */}
+        <input type="submit" value="Submit" />        
+      </form>
+    );
+  }
+
+
+}
+
+
+
 function NewGame(props) {
   return (
     <button onClick={props.onClick}>
@@ -78,52 +138,16 @@ class Board extends React.Component {
     );
   }
 
-
-// lol fuck it, copy-paste for the moment.
-  // render() {
-  //   const status = 'Next player: X';
-
-  //   return (
-  //     <div>
-  //       <div className="status">{status}</div>
-  //       <div className="board-row">
-  //         {this.renderSquare(0)}
-  //         {this.renderSquare(1)}
-  //         {this.renderSquare(2)}
-  //         {this.renderSquare(3)}
-  //       </div>
-  //       <div className="board-row">
-  //         {this.renderSquare(4)}
-  //         {this.renderSquare(5)}
-  //         {this.renderSquare(6)}
-  //         {this.renderSquare(7)}
-  //       </div>
-  //       <div className="board-row">
-  //         {this.renderSquare(8)}
-  //         {this.renderSquare(9)}
-  //         {this.renderSquare(10)}
-  //         {this.renderSquare(11)}
-  //       </div>
-  //       <div className="board-row">
-  //         {this.renderSquare(12)}
-  //         {this.renderSquare(13)}
-  //         {this.renderSquare(14)}
-  //         {this.renderSquare(15)}
-  //       </div>
-  //     </div>
-  //   );
-  // }
 }
 
 class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      boardState: []
+      boardState: [],
+      wordList: []
     }
   }
-
-
 
   shuffleBoard() {
     // TODO: generate a random 4x4 board here
@@ -138,9 +162,24 @@ class Game extends React.Component {
     this.shuffleBoard()
   }
 
+  // addWord(word) {
+  //   const theWords = this.state.wordList;
+  //   theWords.push(word);  //I can push a value onto a const array, right?
+  //   this.setState({wordList: theWords});
+  // }
+  addWord(word) {
+    console.log("shit idk how I should make an updateable list of words. ARG: " + word)
+    const theWords = this.state.wordList;
+    theWords.concat(word);
+    this.setState({
+      wordList: theWords
+    })
+  }
+
 
   render() {
     return (
+
       <div className="game">
         <div className="game-board">
           <Board boardState={this.state.boardState}/>
@@ -150,7 +189,13 @@ class Game extends React.Component {
         </div>
 
         <div className="game-info">
-          <div className="game-info">{"Testing Board.render"}</div>
+          <div className="form">
+            <WordForm onSubmit={(word) => this.addWord(word)}/>
+          </div>
+          <div className="word-list">
+            {"Word List:"}
+            <WordList wordList={this.state.wordList}/>
+            </div>
           
           <div>
             {/* <p>Testing adding text to Game render</p> */}
